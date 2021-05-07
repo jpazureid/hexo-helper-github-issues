@@ -7,7 +7,7 @@ const uuidv5 = require('uuid/v5');
 
 function githubDataHelper(config = {}, post = {}) {
     let blogUrl = config.url
-    const defaultBranch = config.github.defaultBranch || 'master';
+    const defaultBranch = config.github.default_branch || 'master';
     const issueUrl = new URL(url.resolve(config.github.url, 'issues/new'));
     if (config.root) {
         blogUrl = url.resolve(blogUrl, config.root);
