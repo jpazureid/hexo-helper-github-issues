@@ -7,6 +7,7 @@ const uuidv5 = require('uuid/v5');
 
 function githubDataHelper(config = {}, post = {}) {
     let blogUrl = config.url
+    const defaultBranch = config.github.defaultBranch || 'master';
     const issueUrl = new URL(url.resolve(config.github.url, 'issues/new'));
     if (config.root) {
         blogUrl = url.resolve(blogUrl, config.root);
@@ -24,8 +25,8 @@ function githubDataHelper(config = {}, post = {}) {
     }
     //for windows
     sourceFileName = sourceFileName.replace(/\\/g,'/');
-    const editRoot = url.resolve(config.github.url, 'edit/master/');
-    const blobRoot = url.resolve(config.github.url, 'blob/master/');
+    const editRoot = url.resolve(config.github.url, `edit/${defaultBranch}/`);
+    const blobRoot = url.resolve(config.github.url, `blob/${defaultBranch}/`);
     const editUrl = url.resolve(editRoot, sourceFileName);
     const sourceUrl = url.resolve(blobRoot, sourceFileName);
     const author = post.author;
