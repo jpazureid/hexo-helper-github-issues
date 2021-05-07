@@ -12,6 +12,10 @@ npm i -S jpazureid/hexo-helper-github-issues
 ```yaml
 github:
   url: https://github.com/jpazureid/blog/
+  # if you change posts directory
+  posts_dir: articles
+  # the default branch name
+  default_branch: main
 ```
 
 ## Parameters
